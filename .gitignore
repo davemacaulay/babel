@@ -3,6 +3,7 @@
 /packages/*/node_modules
 *.log
 *.cache
+/build
 /.eslintcache
 /browser.js
 /browser-polyfill.js

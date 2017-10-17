@@ -1,4 +1,5 @@
 MAKEFLAGS = -j1
+FLOW_COMMIT = 4cc2b9f7fadf2e9e445ee9b7b980c65d69d3fbc0
 
 export NODE_ENV = test
 
@@ -71,6 +72,18 @@ test-ci-coverage:
 	BABEL_ENV=cov make bootstrap
 	./scripts/test-cov.sh
 	bash <(curl -s https://codecov.io/bash) -f coverage/coverage-final.json
+
+bootstrap-flow:
+	rm -rf ./build/flow
+	mkdir -p ./build
+	git clone --branch=master https://github.com/facebook/flow.git ./build/flow
+	cd build/flow && git checkout $(FLOW_COMMIT)
+
+test-flow:
+	node scripts/tests/flow/run_babylon_flow_tests.js
+
+test-flow-update-whitelist:
+	node scripts/tests/flow/run_babylon_flow_tests.js --update-whitelist
 
 publish:
 	git pull --rebase

@@ -25,12 +25,7 @@
   "devDependencies": {
     "babel-helper-fixtures": "7.0.0-alpha.18",
     "babel-plugin-external-helpers": "7.0.0-alpha.18",
-    "chalk": "^2.0.0",
-    "cross-env": "^5.0.0",
     "flow-bin": "^0.56.0",
-    "graceful-fs": "^4.1.11",
-    "prettier": "^1.5.2",
-    "rimraf": "^2.5.4",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.1",
     "rollup-plugin-node-resolve": "^3.0.0",
