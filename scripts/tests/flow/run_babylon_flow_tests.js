@@ -3,7 +3,7 @@
 const path = require("path");
 const fs = require("fs");
 const chalk = require("chalk");
-const parse = require("babylon").parse;
+const parse = require("../../../packages/babylon").parse;
 
 const TESTS_FOLDER = path.join(
   __dirname,

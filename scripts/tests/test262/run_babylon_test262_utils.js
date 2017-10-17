@@ -10,7 +10,7 @@ const pfs = {
   stat: promisify(fs.stat),
 };
 
-const parse = require("babylon").parse;
+const parse = require("../../../packages/babylon").parse;
 
 const modulePattern = /^\s*-\s*module\s*$|^\s*flags\s*:.*\bmodule\b/m;
 const noStrictPattern = /^\s*-\s*noStrict\s*$|^\s*flags\s*:.*\bnoStrict\b/m;
