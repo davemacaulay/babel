@@ -1,4 +1,5 @@
 [ignore]
+.*/build/.*
 .*/packages/.*/lib
 .*/packages/.*/test
 .*/codemods/.*/lib
@@ -6,7 +7,6 @@
 .*/experimental/.*/lib
 .*/experimental/.*/test
 .*/node_modules/conventional-changelog-core/
-.*/packages/babylon/build/.*
 
 [include]
 packages/*/src

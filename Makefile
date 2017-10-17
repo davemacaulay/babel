@@ -1,5 +1,6 @@
 MAKEFLAGS = -j1
 FLOW_COMMIT = 4cc2b9f7fadf2e9e445ee9b7b980c65d69d3fbc0
+TEST262_COMMIT = 1282e842febf418ca27df13fa4b32f7e5021b470
 
 export NODE_ENV = test
 
@@ -76,7 +77,7 @@ test-ci-coverage:
 bootstrap-flow:
 	rm -rf ./build/flow
 	mkdir -p ./build
-	git clone --branch=master https://github.com/facebook/flow.git ./build/flow
+	git clone --branch=master --single-branch --shallow-since=2017-01-01 https://github.com/facebook/flow.git ./build/flow
 	cd build/flow && git checkout $(FLOW_COMMIT)
 
 test-flow:
@@ -84,6 +85,18 @@ test-flow:
 
 test-flow-update-whitelist:
 	node scripts/tests/flow/run_babylon_flow_tests.js --update-whitelist
+
+bootstrap-test262:
+	rm -rf ./build/test262
+	mkdir -p ./build
+	git clone --branch=master --single-branch --shallow-since=2017-01-01 https://github.com/tc39/test262.git ./build/test262
+	cd build/test262 && git checkout $(TEST262_COMMIT)
+
+test-test262:
+	node scripts/tests/test262/run_babylon_test262.js
+
+test-test262-update-whitelist:
+	node scripts/tests/test262/run_babylon_test262.js --update-whitelist
 
 publish:
 	git pull --rebase

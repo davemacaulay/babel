@@ -21,11 +21,13 @@ before_install:
 
 before_script:
   - 'if [ "$JOB" = "babylon-flow-tests" ]; then make bootstrap-flow; fi'
+  - 'if [ "$JOB" = "babylon-test262-tests" ]; then make bootstrap-test262; fi'
 
 script:
   - 'if [ "$JOB" = "test" ]; then make test-ci; fi'
   - 'if [ "$JOB" = "lint" ]; then make lint && make flow; fi'
   - 'if [ "$JOB" = "babylon-flow-tests" ]; then make test-flow; fi'
+  - 'if [ "$JOB" = "babylon-test262-tests" ]; then make test-test262; fi'
 
 matrix:
   fast_finish: true
@@ -34,6 +36,8 @@ matrix:
       env: JOB=lint
     - node_js: "node"
       env: JOB=babylon-flow-tests
+    - node_js: "node"
+      env: JOB=babylon-test262-tests
 
 notifications:
   slack:
