@@ -89,6 +89,7 @@ Following is a table of the options you can use:
 | `ast`                    | `true`               | Include the AST in the returned object |
 | `auxiliaryCommentAfter`  | `null`               | Attach a comment after all non-user injected code |
 | `auxiliaryCommentBefore` | `null`               | Attach a comment before all non-user injected code |
+| `indent`                 | `2`                  | Specify number of spaces to indent output by |
 | `babelrc`                | `true`               | Specify whether or not to use .babelrc and .babelignore files. Not available when using the CLI, [use `--no-babelrc` instead](https://babeljs.io/docs/usage/cli/#babel-ignoring-babelrc) |
 | `code`                   | `true`               | Enable code generation |
 | `comments`               | `true`               | Output comments in generated output |

@@ -62,6 +62,7 @@ const optionNames = new Set([
   "moduleIds",
   "moduleId",
   "passPerPreset",
+  "indent",
   // Deprecate top level parserOpts
   "parserOpts",
   // Deprecate top level generatorOpts

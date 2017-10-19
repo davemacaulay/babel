@@ -32,6 +32,10 @@ function collect(value, previousValue): Array<string> {
   return previousValue ? previousValue.concat(values) : values;
 }
 
+function collectNumber(value): number {
+  return parseInt(value);
+}
+
 /* eslint-disable max-len */
 // Standard Babel input configs.
 commander.option(
@@ -95,6 +99,11 @@ commander.option(
 commander.option(
   "--auxiliary-comment-after [string]",
   "print a comment after any injected non-user code",
+);
+commander.option(
+  "--indent [number]",
+  "specify number of spaces to indent output by (2 by default)",
+  collectNumber,
 );
 
 // General soucemap formatting.

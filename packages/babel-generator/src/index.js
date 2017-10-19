@@ -1,5 +1,6 @@
 import SourceMap from "./source-map";
 import Printer, { type Format } from "./printer";
+import repeat from "lodash/repeat";
 
 /**
  * Babel's code generator, turns an ast into code, maintaining sourcemaps,
@@ -36,6 +37,11 @@ class Generator extends Printer {
  */
 
 function normalizeOptions(code, opts): Format {
+  let indentStyle = "  ";
+  if (opts.indent && Number.isInteger(opts.indent)) {
+    indentStyle = repeat(" ", opts.indent);
+  }
+
   const format = {
     auxiliaryCommentBefore: opts.auxiliaryCommentBefore,
     auxiliaryCommentAfter: opts.auxiliaryCommentAfter,
@@ -50,7 +56,7 @@ function normalizeOptions(code, opts): Format {
     jsonCompatibleStrings: opts.jsonCompatibleStrings,
     indent: {
       adjustMultilineComment: true,
-      style: "  ",
+      style: indentStyle,
       base: 0,
     },
   };
